@@ -7,7 +7,7 @@ def square(x):
   return x * x
 
 def is_good_enough(guess, n):
-  return abs((square(guess) - n)) > 0.0000000001
+  return abs((square(guess) - n)) < 0.0000000001
 
 # abs(guess * guess - n) > 0.0000000001
 
@@ -20,6 +20,9 @@ def improve_guess(guess, n):
 def sqrt(n):
   guess = 1
 
-  while is_good_enough(guess, n):
+  while not is_good_enough(guess, n):
     guess = improve_guess(guess, n)
   return guess
+
+print(sqrt(2))
+print(sqrt(25))
